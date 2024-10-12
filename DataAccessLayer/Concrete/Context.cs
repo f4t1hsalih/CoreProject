@@ -8,8 +8,9 @@ namespace DataAccessLayer.Concrete
         //Bağlantı Adresi için gerekli konfigürasyon kodları
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=DESKTOP-9D1JVJE\\SQLEXPRESS;database=Db_CoreProject;intigrated security=true");
+            optionsBuilder.UseSqlServer("server = DESKTOP-9D1JVJE\\SQLEXPRESS; database = DB_CoreProject; integrated security = true;  encrypt = false");
         }
+
         public DbSet<About> Abouts { get; set; }
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Experience> Experiences { get; set; }
