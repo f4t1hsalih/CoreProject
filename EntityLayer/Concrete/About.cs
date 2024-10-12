@@ -5,14 +5,16 @@ namespace EntityLayer.Concrete
     public class About
     {
         [Key]
-        public int ID { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public string Age { get; set; }
-        public string EMail { get; set; }
-        public string Phone { get; set; }
-        public string Address { get; set; }
-        public string ImageUrl { get; set; }
-
+        public int Id { get; set; }
+        public required string Title { get; set; }
+        public required string Description { get; set; }
+        public int Age { get; set; }
+        [EmailAddress]
+        public required string Email { get; set; }
+        [Phone]
+        public required string Phone { get; set; }
+        public required string Address { get; set; }
+        [Url]
+        public required string ImageUrl { get; set; }
     }
 }

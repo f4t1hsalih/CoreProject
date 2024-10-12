@@ -6,9 +6,9 @@ namespace EntityLayer.Concrete
     {
         [Key]
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string EMail { get; set; }
-        public string Content { get; set; }
+        public required string Name { get; set; }
+        public required string EMail { get; set; }
+        public required string Content { get; set; }
         public DateTime Date { get; set; }
         public bool Status { get; set; }
     }

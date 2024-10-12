@@ -6,9 +6,10 @@ namespace EntityLayer.Concrete
     {
         [Key]
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Date { get; set; }
-        public string ImageUrl { get; set; }
-        public string Description { get; set; }
+        public required string Name { get; set; }
+        public required DateTime Date { get; set; }
+        [Url]
+        public required string ImageUrl { get; set; }
+        public string? Description { get; set; }
     }
 }

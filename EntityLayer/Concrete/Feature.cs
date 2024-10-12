@@ -6,8 +6,8 @@ namespace EntityLayer.Concrete
     {
         [Key]
         public int ID { get; set; }
-        public string Header { get; set; }
-        public string Name { get; set; }
-        public string Title { get; set; }
+        public required string Header { get; set; }
+        public required string Name { get; set; }
+        public required string Title { get; set; }
     }
 }
