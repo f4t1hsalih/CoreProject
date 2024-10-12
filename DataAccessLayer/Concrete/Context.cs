@@ -10,5 +10,7 @@ namespace DataAccessLayer.Concrete
             optionsBuilder.UseSqlServer("server=DESKTOP-9D1JVJE\\SQLEXPRESS;database=Db_CoreProject;intigrated security=true");
         }
 
+
+
     }
 }
