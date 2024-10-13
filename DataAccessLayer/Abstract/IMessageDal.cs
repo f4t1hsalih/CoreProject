@@ -2,7 +2,7 @@
 
 namespace DataAccessLayer.Abstract
 {
-    public interface ISkillDal : IGenericDal<Skill>
+    public interface IMessageDal : IGenericDal<Message>
     {
 
     }
