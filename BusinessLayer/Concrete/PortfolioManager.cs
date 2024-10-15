@@ -4,7 +4,7 @@ using EntityLayer.Concrete;
 
 namespace BusinessLayer.Concrete
 {
-    internal class PortfolioManager : IPortfolioService
+    public class PortfolioManager : IPortfolioService
     {
         private readonly IPortfolioDal _portfolioManager;
 

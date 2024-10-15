@@ -8,6 +8,10 @@ namespace EntityLayer.Concrete
         public int Id { get; set; }
         public required string Name { get; set; }
         [Url]
+        public required string ProjectUrl { get; set; }
+        [Url]
+        public required string SmallImageUrl { get; set; }
+        [Url]
         public required string ImageUrl { get; set; }
     }
 }
