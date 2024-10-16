@@ -7,7 +7,8 @@ namespace EntityLayer.Concrete
         [Key]
         public int Id { get; set; }
         public required string Name { get; set; }
-        public required string Company { get; set; }
+        public string? Position { get; set; }
+        public string? Company { get; set; }
         public required string Comment { get; set; }
         [Url]
         public required string ImageUrl { get; set; }
