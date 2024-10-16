@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CoreProject.Controllers
 {
@@ -18,6 +21,22 @@ namespace CoreProject.Controllers
         public PartialViewResult NavbarPartial()
         {
             return PartialView();
+        }
+
+        [HttpGet]
+        public PartialViewResult SendMessage()
+        {
+            return PartialView();
+        }
+        [HttpPost]
+        public PartialViewResult SendMessage(Message message)
+        {
+            MessageMenager messageMenager = new MessageMenager(new EfMessageDal());
+            message.Date = DateTime.Now;
+            message.Status = true;
+            messageMenager.TAdd(message);
+
+            return PartialView("Index", "MainPage");
         }
     }
 }
