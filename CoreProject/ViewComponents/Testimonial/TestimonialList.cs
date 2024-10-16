@@ -2,9 +2,9 @@
 using DataAccessLayer.EntityFramework;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CoreProject.ViewComponents
+namespace CoreProject.ViewComponents.Testimonial
 {
-    public class TestimonialList:ViewComponent
+    public class TestimonialList : ViewComponent
     {
         public IViewComponentResult Invoke()
         {

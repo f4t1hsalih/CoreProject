@@ -2,7 +2,7 @@
 using DataAccessLayer.EntityFramework;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CoreProject.ViewComponents
+namespace CoreProject.ViewComponents.Service
 {
     public class ServiceList : ViewComponent
     {
