@@ -1,0 +1,44 @@
+﻿@model List<EntityLayer.Concrete.Portfolio>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="table-responsive">
+    <table class="table align-items-center table-flush">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Proje</th>
+                <th scope="col">URL</th>
+                <th scope="col">Düzenle</th>
+                <th scope="col">Sil</th>
+            </tr>
+        </thead>
+        <tbody class="list">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <div class="media align-items-center">
+                            <div class="avatar rounded-circle mr-3">
+                                <img alt="Image placeholder" src="@item.ImageUrl">
+                            </div>
+                            <div class="media-body">
+                                <span class="name mb-0">@item.Name</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        @item.ProjectUrl
+                    </td>
+                    <td>
+                        <a href="@Url.Action("EditPortfolio", "Portfolio", new { id = item.Id })" class="btn btn-sm btn-primary">Düzenle</a>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("DeletePortfolio", "Portfolio", new { id = item.Id })" class="btn btn-sm btn-danger">Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

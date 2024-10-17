@@ -7,6 +7,8 @@ namespace CoreProject.Controllers
 {
     public class SkillController : Controller
     {
+        SkillManager skillManager = new SkillManager(new EfSkillDal());
+
         void ViewBags(string pageName)
         {
             ViewBag.PageName = pageName;
@@ -17,7 +19,6 @@ namespace CoreProject.Controllers
         {
             ViewBags("Yetenek Listesi");
 
-            SkillManager skillManager = new SkillManager(new EfSkillDal());
             var skillValues = skillManager.TGetListAll();
             return View(skillValues);
         }
@@ -31,7 +32,6 @@ namespace CoreProject.Controllers
         [HttpPost]
         public IActionResult AddSkill(Skill skill)
         {
-            SkillManager skillManager = new SkillManager(new EfSkillDal());
             skillManager.TAdd(skill);
             return RedirectToAction("Index");
         }
@@ -39,7 +39,6 @@ namespace CoreProject.Controllers
         [HttpGet]
         public IActionResult EditSkill(int id)
         {
-            SkillManager skillManager = new SkillManager(new EfSkillDal());
             var value = skillManager.TGetById(id);
             return View(value);
         }
@@ -48,14 +47,12 @@ namespace CoreProject.Controllers
         public IActionResult EditSkill(Skill skill)
         {
             ViewBags("Yetenek Düzenle");
-            SkillManager skillManager = new SkillManager(new EfSkillDal());
             skillManager.TUpdate(skill);
             return RedirectToAction("Index");
         }
 
         public IActionResult DeleteSkill(int id)
         {
-            SkillManager skillManager = new SkillManager(new EfSkillDal());
             skillManager.TDelete(skillManager.TGetById(id));
             return RedirectToAction("Index");
         }

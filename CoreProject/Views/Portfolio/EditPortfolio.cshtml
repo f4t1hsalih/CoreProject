@@ -1,0 +1,42 @@
+﻿@model EntityLayer.Concrete.Portfolio
+@{
+    ViewData["Title"] = "Portföy Düzenle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("EditPortfolio", "Portfolio", FormMethod.Post, new { @class = "card-body px-lg-5 py-lg-5" }))
+{
+    @Html.HiddenFor(x => x.Id)
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Name, "Proje", new { @class = "form-label" })
+        <div class="input-group input-group-alternative mb-3">
+            @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = "Deneyim", required = "required" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.ProjectUrl, "Proje Adresi", new { @class = "form-label" })
+        <div class="input-group input-group-alternative mb-3">
+            @Html.TextBoxFor(x => x.ProjectUrl, new { @class = "form-control", placeholder = "Proje Adresi", required = "required" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.SmallImageUrl, "Küçük Resim Yolu", new { @class = "form-label" })
+        <div class="input-group input-group-alternative mb-3">
+            @Html.TextBoxFor(x => x.SmallImageUrl, new { @class = "form-control", placeholder = "Küçük Resim Yolu", required = "required" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.ImageUrl, "Resim Yolu", new { @class = "form-label" })
+        <div class="input-group input-group-alternative mb-3">
+            @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control", placeholder = "Resim Yolu", required = "required" })
+        </div>
+    </div>
+
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary mt-4">Ekle</button>
+    </div>
+}

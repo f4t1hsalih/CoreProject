@@ -2685,7 +2685,7 @@ pre code
 
 .form-control
 {
-    font-size: .875rem;
+    font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
 
@@ -3285,7 +3285,7 @@ textarea.form-control
 
 .btn
 {
-    font-size: .875rem;
+    font-size: 1rem;
     font-weight: 600;
     line-height: 1.5;
 
@@ -5038,7 +5038,7 @@ input[type='button'].btn-block
 .input-group-lg > .input-group-prepend > .btn,
 .input-group-lg > .input-group-append > .btn
 {
-    font-size: .875rem;
+    font-size: 1rem;
     line-height: 1.5;
 
     padding: .875rem 1rem;
@@ -7279,7 +7279,7 @@ a.badge:focus
 
 .progress
 {
-    font-size: .75rem;
+    font-size: .85rem;
 
     display: flex;
     overflow: hidden;
@@ -9088,8 +9088,9 @@ button.bg-darker:focus
 }
 
 .rounded-circle,
-.avatar.rounded-circle img
-{
+.avatar.rounded-circle img {
+    width: 100%;
+    height: 100%;
     border-radius: 50% !important;
 }
 
@@ -18154,7 +18155,7 @@ a.text-darker:focus
 
 .avatar-lg
 {
-    font-size: .875rem; 
+    font-size: 1rem; 
 
     width: 58px;
     height: 58px;
@@ -19900,7 +19901,7 @@ a.btn-icon-only
 
 .dropdown-menu a.media p
 {
-    color: #8898aa;
+    color: transparent;
 }
 
 .dropdown-menu a.media:hover .heading,
@@ -23724,7 +23725,7 @@ textarea[resize='horizontal']
 
 .table thead th
 {
-    font-size: .65rem;
+    font-size: .85rem;
 
     padding-top: .75rem;
     padding-bottom: .75rem;
@@ -23750,7 +23751,7 @@ textarea[resize='horizontal']
 .table td,
 .table th
 {
-    font-size: .8125rem;
+    font-size: .85rem;
 
     white-space: nowrap;
 }
