@@ -1,6 +1,6 @@
 ﻿@model List<EntityLayer.Concrete.Skill>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Yetenekler";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -32,10 +32,10 @@
                         </div>
                     </td>
                     <td>
-                        <a href="@Url.Action("Edit", "Skill", new { id = item.Id })" class="btn btn-sm btn-primary">Düzenle</a>
+                        <a href="@Url.Action("EditSkill", "Skill", new { id = item.Id })" class="btn btn-sm btn-primary">Düzenle</a>
                     </td>
                     <td>
-                        <a href="@Url.Action("Delete", "Skill", new { id = item.Id })" class="btn btn-sm btn-danger">Sil</a>
+                        <a href="@Url.Action("DeleteSkill", "Skill", new { id = item.Id })" class="btn btn-sm btn-danger">Sil</a>
                     </td>
                 </tr>
             }

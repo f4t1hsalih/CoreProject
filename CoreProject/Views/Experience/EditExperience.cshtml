@@ -1,0 +1,48 @@
+﻿@model EntityLayer.Concrete.Experience
+@{
+    ViewData["Title"] = "Deneyim Düzenle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("EditExperience", "Experience", FormMethod.Post, new { @class = "card-body px-lg-5 py-lg-5" }))
+{
+    @Html.HiddenFor(x => x.Id)
+
+    <!-- Deneyim -->
+    <div class="form-group">
+        @Html.LabelFor(x => x.Name, "Deneyim", new { @class = "form-label" })
+        <div class="input-group input-group-alternative mb-3">
+            @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = "Deneyim", required = "required" })
+        </div>
+    </div>
+
+    <!-- Tarih (MM/YYYY - MM/YYYY formatında) -->
+    <div class="form-group">
+        @Html.LabelFor(x => x.Date, "Tarih", new { @class = "form-label" })
+        <div class="input-group input-group-alternative mb-3">
+            @Html.TextBoxFor(x => x.Date, new { @class = "form-control", placeholder = "(MM/YYYY - MM/YYYY)", required = "required", pattern = "\\d{2}/\\d{4} - \\d{2}/\\d{4}" })
+        </div>
+        <small class="form-text text-muted">Format: MM/YYYY - MM/YYYY</small>
+    </div>
+
+    <!-- Resim Yolu -->
+    <div class="form-group">
+        @Html.LabelFor(x => x.ImageUrl, "Resim Yolu", new { @class = "form-label" })
+        <div class="input-group input-group-alternative mb-3">
+            @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control", placeholder = "Resim Yolu", required = "required" })
+        </div>
+    </div>
+
+    <!-- Açıklama -->
+    <div class="form-group">
+        @Html.LabelFor(x => x.Description, "Açıklama", new { @class = "form-label" })
+        <div class="input-group input-group-alternative mb-3">
+            @Html.TextAreaFor(x => x.Description, new { @class = "form-control", placeholder = "Deneyim hakkında detaylı açıklama giriniz", rows = 6 })
+        </div>
+    </div>
+
+    <!-- Kaydet Butonu -->
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary mt-4">Kaydet</button>
+    </div>
+}

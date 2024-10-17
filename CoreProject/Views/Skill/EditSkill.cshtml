@@ -1,0 +1,29 @@
+﻿@model EntityLayer.Concrete.Skill
+@{
+    ViewData["Title"] = "Yetenek Düzenle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("EditSkill", "Skill", FormMethod.Post, new { @class = "card-body px-lg-5 py-lg-5" }))
+{
+    @Html.HiddenFor(x => x.Id)
+    <div class="form-group">
+        <div>
+            @Html.LabelFor(x => x.Title, "Yetenek")
+        </div>
+        <div class="input-group input-group-merge input-group-alternative mb-3">
+            @Html.TextBoxFor(x => x.Title, new { @class = "form-control", placeholder = "Yetenek", required = "required" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div>
+            @Html.LabelFor(x => x.Value, "Seviye")
+        </div>
+        <div class="input-group input-group-merge input-group-alternative mb-3">
+            @Html.TextBoxFor(x => x.Value, new { @class = "form-control", placeholder = "Seviye (0-100)", type = "number", required = "required" })
+        </div>
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary mt-4">Kaydet</button>
+    </div>
+}
