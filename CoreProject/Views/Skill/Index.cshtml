@@ -1,0 +1,44 @@
+﻿@model List<EntityLayer.Concrete.Skill>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="table-responsive">
+    <table class="table align-items-center table-flush">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col" width="25%">Yetenek</th>
+                <th scope="col" width="45%">Değer</th>
+                <th scope="col" width="15%">Düzenle</th>
+                <th scope="col" width="15%">Sil</th>
+            </tr>
+        </thead>
+        <tbody class="list">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.Title
+                    </td>
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <span class="completion mr-2">@item.Value%</span>
+                            <div style="flex-grow: 1;">
+                                <div class="progress" style="height: 8px; width: 75%;">
+                                    <div class="progress-bar bg-success" role="progressbar" aria-valuenow="@item.Value" aria-valuemin="0" aria-valuemax="100" style="width: @(item.Value)%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Edit", "Skill", new { id = item.Id })" class="btn btn-sm btn-primary">Düzenle</a>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Delete", "Skill", new { id = item.Id })" class="btn btn-sm btn-danger">Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
