@@ -6,8 +6,11 @@ namespace EntityLayer.Concrete
     {
         [Key]
         public int Id { get; set; }
-        public required string Title { get; set; }
-        [Url]
-        public required string ImageUrl { get; set; }
+
+        [StringLength(100)]  // varchar(100)
+        public string? Title { get; set; }
+
+        [StringLength(200)]  // varchar(200)
+        public string? ImageUrl { get; set; }
     }
 }
