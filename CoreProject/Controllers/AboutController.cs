@@ -7,9 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CoreProject.Controllers
 {
-    public class FeatureController : Controller
+    public class AboutController : Controller
     {
-        FeatureManager featureManager = new FeatureManager(new EfFeatureDal());
+        AboutManager aboutManager = new AboutManager(new EfAboutDal());
         void ViewBags(string pageName)
         {
             ViewBag.PageName = pageName;
@@ -18,26 +18,25 @@ namespace CoreProject.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            ViewBags("Öne Çıkan");
-            var value = featureManager.TGetById(1);
+            ViewBags("Hakkımda");
+            var value = aboutManager.TGetById(1);
             return View(value);
         }
-
         [HttpPost]
-        public IActionResult Index(Feature feature)
+        public IActionResult Index(About about)
         {
-            FeatureValidator validations = new FeatureValidator();
-            ValidationResult result = validations.Validate(feature);
-            if (!result.IsValid)
+            AboutValidator rules = new AboutValidator();
+            ValidationResult results = rules.Validate(about);
+            if (!results.IsValid)
             {
-                foreach (var item in result.Errors)
+                foreach (var item in results.Errors)
                 {
                     ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
                 return View();
             }
-            featureManager.TUpdate(feature);
-            return View(feature);
+            aboutManager.TUpdate(about);
+            return View(about);
         }
     }
 }

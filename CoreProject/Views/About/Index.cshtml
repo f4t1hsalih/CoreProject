@@ -1,0 +1,72 @@
+﻿@model EntityLayer.Concrete.About
+
+@{
+    ViewData["Title"] = "Hakkımda";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("Index", "About", FormMethod.Post, new { @class = "card-body px-lg-5 py-lg-5" }))
+{
+    @Html.HiddenFor(x => x.Id)
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Title, "Başlık", new { @class = "form-label" })
+        <div class="input-group input-group-alternative mb-3">
+            @Html.TextBoxFor(x => x.Title, new { @class = "form-control", placeholder = "Başlık" })
+        </div>
+        @Html.ValidationMessageFor(x => x.Title, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Description, "Açıklama", new { @class = "form-label" })
+        <div class="input-group input-group-alternative mb-3">
+            @Html.TextAreaFor(x => x.Description, new { @class = "form-control", placeholder = "Açıklama", rows = 5 })
+        </div>
+        @Html.ValidationMessageFor(x => x.Description, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Age, "Yaş", new { @class = "form-label" })
+        <div class="input-group input-group-alternative mb-3">
+            @Html.TextBoxFor(x => x.Age, new { @class = "form-control", placeholder = "Yaş", type = "number", min = "0", max = "100" })
+        </div>
+        @Html.ValidationMessageFor(x => x.Age, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Email, "Email", new { @class = "form-label" })
+        <div class="input-group input-group-alternative mb-3">
+            @Html.TextBoxFor(x => x.Email, new { @class = "form-control", placeholder = "Email", type = "email" })
+        </div>
+        @Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Phone, "Telefon", new { @class = "form-label" })
+        <div class="input-group input-group-alternative mb-3">
+            @Html.TextBoxFor(x => x.Phone, new { @class = "form-control", placeholder = "Telefon", type = "tel" })
+        </div>
+        @Html.ValidationMessageFor(x => x.Phone, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Address, "Adres", new { @class = "form-label" })
+        <div class="input-group input-group-alternative mb-3">
+            @Html.TextAreaFor(x => x.Address, new { @class = "form-control", placeholder = "Adres", rows = 5 })
+        </div>
+        @Html.ValidationMessageFor(x => x.Address, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.ImageUrl, "Resim Yolu", new { @class = "form-label" })
+        <div class="input-group input-group-alternative mb-3">
+            @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control", placeholder = "Resim Yolu" })
+        </div>
+        @Html.ValidationMessageFor(x => x.ImageUrl, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary mt-4">Düzenle</button>
+    </div>
+}
+
