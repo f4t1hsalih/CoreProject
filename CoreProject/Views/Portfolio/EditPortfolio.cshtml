@@ -11,29 +11,33 @@
     <div class="form-group">
         @Html.LabelFor(x => x.Name, "Proje", new { @class = "form-label" })
         <div class="input-group input-group-alternative mb-3">
-            @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = "Deneyim", required = "required" })
+            @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = "Proje" })
         </div>
+        @Html.ValidationMessageFor(x => x.Name, "", new { @class = "text-danger" })
     </div>
 
     <div class="form-group">
         @Html.LabelFor(x => x.ProjectUrl, "Proje Adresi", new { @class = "form-label" })
         <div class="input-group input-group-alternative mb-3">
-            @Html.TextBoxFor(x => x.ProjectUrl, new { @class = "form-control", placeholder = "Proje Adresi", required = "required" })
+            @Html.TextBoxFor(x => x.ProjectUrl, new { @class = "form-control", placeholder = "Proje Adresi" })
         </div>
+        @Html.ValidationMessageFor(x => x.ProjectUrl, "", new { @class = "text-danger" })
     </div>
 
     <div class="form-group">
         @Html.LabelFor(x => x.SmallImageUrl, "Küçük Resim Yolu", new { @class = "form-label" })
         <div class="input-group input-group-alternative mb-3">
-            @Html.TextBoxFor(x => x.SmallImageUrl, new { @class = "form-control", placeholder = "Küçük Resim Yolu", required = "required" })
+            @Html.TextBoxFor(x => x.SmallImageUrl, new { @class = "form-control", placeholder = "Küçük Resim Yolu" })
         </div>
+        @Html.ValidationMessageFor(x => x.SmallImageUrl, "", new { @class = "text-danger" })
     </div>
 
     <div class="form-group">
         @Html.LabelFor(x => x.ImageUrl, "Resim Yolu", new { @class = "form-label" })
         <div class="input-group input-group-alternative mb-3">
-            @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control", placeholder = "Resim Yolu", required = "required" })
+            @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control", placeholder = "Resim Yolu" })
         </div>
+        @Html.ValidationMessageFor(x => x.ImageUrl, "", new { @class = "text-danger" })
     </div>
 
     <div class="text-center">

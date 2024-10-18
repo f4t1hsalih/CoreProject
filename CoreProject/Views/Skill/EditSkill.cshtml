@@ -7,22 +7,23 @@
 @using (Html.BeginForm("EditSkill", "Skill", FormMethod.Post, new { @class = "card-body px-lg-5 py-lg-5" }))
 {
     @Html.HiddenFor(x => x.Id)
+
     <div class="form-group">
-        <div>
-            @Html.LabelFor(x => x.Title, "Yetenek")
+        @Html.LabelFor(x => x.Title, "Yetenek", new { @class = "form-label" })
+        <div class="input-group input-group-alternative mb-3">
+            @Html.TextBoxFor(x => x.Title, new { @class = "form-control", placeholder = "Yetenek"})
         </div>
-        <div class="input-group input-group-merge input-group-alternative mb-3">
-            @Html.TextBoxFor(x => x.Title, new { @class = "form-control", placeholder = "Yetenek", required = "required" })
-        </div>
+        @Html.ValidationMessageFor(x => x.Title, "", new { @class = "text-danger" })
     </div>
+
     <div class="form-group">
-        <div>
-            @Html.LabelFor(x => x.Value, "Seviye")
+        @Html.LabelFor(x => x.Value, "Seviye", new { @class = "form-label" })
+        <div class="input-group input-group-alternative mb-3">
+            @Html.TextBoxFor(x => x.Value, new { @class = "form-control", placeholder = "Seviye (0-100)", type = "number", min = "0", max = "100" })
         </div>
-        <div class="input-group input-group-merge input-group-alternative mb-3">
-            @Html.TextBoxFor(x => x.Value, new { @class = "form-control", placeholder = "Seviye (0-100)", type = "number", required = "required" })
-        </div>
+        @Html.ValidationMessageFor(x => x.Value, "", new { @class = "text-danger" })
     </div>
+
     <div class="text-center">
         <button type="submit" class="btn btn-primary mt-4">Kaydet</button>
     </div>

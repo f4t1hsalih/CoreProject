@@ -1,6 +1,8 @@
 ﻿using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CoreProject.Controllers
@@ -32,6 +34,16 @@ namespace CoreProject.Controllers
         [HttpPost]
         public IActionResult AddSkill(Skill skill)
         {
+            SkillValidator rules = new SkillValidator();
+            ValidationResult result = rules.Validate(skill);
+            if (!result.IsValid)
+            {
+                foreach (var item in result.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+                return View();
+            }
             skillManager.TAdd(skill);
             return RedirectToAction("Index");
         }
@@ -39,6 +51,7 @@ namespace CoreProject.Controllers
         [HttpGet]
         public IActionResult EditSkill(int id)
         {
+            ViewBags("Yetenek Düzenle");
             var value = skillManager.TGetById(id);
             return View(value);
         }
@@ -46,7 +59,16 @@ namespace CoreProject.Controllers
         [HttpPost]
         public IActionResult EditSkill(Skill skill)
         {
-            ViewBags("Yetenek Düzenle");
+            SkillValidator rules = new SkillValidator();
+            ValidationResult result = rules.Validate(skill);
+            if (!result.IsValid)
+            {
+                foreach (var item in result.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+                return View();
+            }
             skillManager.TUpdate(skill);
             return RedirectToAction("Index");
         }

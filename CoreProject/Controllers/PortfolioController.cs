@@ -57,6 +57,16 @@ namespace CoreProject.Controllers
         [HttpPost]
         public IActionResult EditPortfolio(Portfolio portfolio)
         {
+            PortfolioValidator validations = new PortfolioValidator();
+            ValidationResult result = validations.Validate(portfolio);
+            if (!result.IsValid)
+            {
+                foreach (var item in result.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+                return View();
+            }
             postfolioManager.TUpdate(portfolio);
             return RedirectToAction("Index");
         }

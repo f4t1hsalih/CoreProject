@@ -12,25 +12,28 @@
     <div class="form-group">
         @Html.LabelFor(x => x.Name, "Deneyim", new { @class = "form-label" })
         <div class="input-group input-group-alternative mb-3">
-            @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = "Deneyim", required = "required" })
+            @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = "Deneyim"})
         </div>
+        @Html.ValidationMessageFor(x => x.Name, "", new { @class = "text-danger" })
     </div>
 
     <!-- Tarih (MM/YYYY - MM/YYYY formatında) -->
     <div class="form-group">
         @Html.LabelFor(x => x.Date, "Tarih", new { @class = "form-label" })
         <div class="input-group input-group-alternative mb-3">
-            @Html.TextBoxFor(x => x.Date, new { @class = "form-control", placeholder = "(MM/YYYY - MM/YYYY)", required = "required", pattern = "\\d{2}/\\d{4} - \\d{2}/\\d{4}" })
+            @Html.TextBoxFor(x => x.Date, new { @class = "form-control", placeholder = "(MM/YYYY - MM/YYYY)", pattern = "\\d{2}/\\d{4} - \\d{2}/\\d{4}" })
         </div>
         <small class="form-text text-muted">Format: MM/YYYY - MM/YYYY</small>
+        @Html.ValidationMessageFor(x => x.Date, "", new { @class = "text-danger" })
     </div>
 
     <!-- Resim Yolu -->
     <div class="form-group">
         @Html.LabelFor(x => x.ImageUrl, "Resim Yolu", new { @class = "form-label" })
         <div class="input-group input-group-alternative mb-3">
-            @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control", placeholder = "Resim Yolu", required = "required" })
+            @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control", placeholder = "Resim Yolu"})
         </div>
+        @Html.ValidationMessageFor(x => x.ImageUrl, "", new { @class = "text-danger" })
     </div>
 
     <!-- Açıklama -->
@@ -39,6 +42,7 @@
         <div class="input-group input-group-alternative mb-3">
             @Html.TextAreaFor(x => x.Description, new { @class = "form-control", placeholder = "Deneyim hakkında detaylı açıklama giriniz", rows = 6 })
         </div>
+        @Html.ValidationMessageFor(x => x.Description, "", new { @class = "text-danger" })
     </div>
 
     <!-- Kaydet Butonu -->
