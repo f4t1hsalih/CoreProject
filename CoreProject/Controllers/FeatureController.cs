@@ -15,6 +15,7 @@ namespace CoreProject.Controllers
             ViewBag.PageName = pageName;
             ViewBag.NewButton = "";
         }
+
         [HttpGet]
         public IActionResult Index()
         {

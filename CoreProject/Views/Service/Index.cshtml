@@ -1,0 +1,42 @@
+﻿@model List<EntityLayer.Concrete.Service>
+
+@{
+    ViewData["Title"] = "Hizmetler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="table-responsive">
+    <table class="table align-items-center table-flush">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Hizmet</th>
+                <th scope="col">Düzenle</th>
+                <th scope="col">Sil</th>
+            </tr>
+        </thead>
+        <tbody class="list">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <div class="media align-items-center">
+                            <div class="avatar rounded-circle mr-3">
+                                <img alt="Image placeholder" src="@item.ImageUrl">
+                            </div>
+                            <div class="media-body">
+                                <span class="name mb-0 text-sm">@item.Title</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("EditService", "Service", new { id = item.Id })" class="btn btn-sm btn-primary">Düzenle</a>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("DeleteService", "Service", new { id = item.Id })" class="btn btn-sm btn-danger">Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

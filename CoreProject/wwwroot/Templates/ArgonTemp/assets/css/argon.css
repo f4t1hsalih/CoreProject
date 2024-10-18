@@ -4336,6 +4336,15 @@ fieldset:disabled a.btn
     border-radius: .4375rem;
 }
 
+.btn-md,
+.btn-group-md > .btn {
+    font-size: .8rem; 
+    line-height: 1.5;
+    padding: .5rem 0.8rem; 
+
+    border-radius: .3125rem; 
+}
+
 .btn-sm,
 .btn-group-sm > .btn
 {
