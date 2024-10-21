@@ -1,0 +1,56 @@
+﻿@model EntityLayer.Concrete.Testimonial
+
+@{
+    ViewData["Title"] = "Referans Düzenle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("EditTestimonial", "Testimonial", FormMethod.Post, new { @class = "card-body px-lg-5 py-lg-5" }))
+{
+    @Html.HiddenFor(x => x.Id)
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Name, "İsim", new { @class = "form-label" })
+        <div class="input-group input-group-alternative mb-3">
+            @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = "İsim" })
+        </div>
+        @Html.ValidationMessageFor(x => x.Name, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Position, "Pozisyon", new { @class = "form-label" })
+        <div class="input-group input-group-alternative mb-3">
+            @Html.TextBoxFor(x => x.Position, new { @class = "form-control", placeholder = "Pozisyon" })
+        </div>
+        @Html.ValidationMessageFor(x => x.Position, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Company, "Şirket", new { @class = "form-label" })
+        <div class="input-group input-group-alternative mb-3">
+            @Html.TextBoxFor(x => x.Company, new { @class = "form-control", placeholder = "Şirket" })
+        </div>
+        @Html.ValidationMessageFor(x => x.Company, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Comment, "Yorum", new { @class = "form-label" })
+        <div class="input-group input-group-alternative mb-3">
+            @Html.TextAreaFor(x => x.Comment, new { @class = "form-control", placeholder = "Yorum...", rows = 6, required = "required" })
+        </div>
+        @Html.ValidationMessageFor(x => x.Comment, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.ImageUrl, "Resim Yolu", new { @class = "form-label" })
+        <div class="input-group input-group-alternative mb-3">
+            @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control", placeholder = "Resim Yolu", required = "required" })
+        </div>
+        @Html.ValidationMessageFor(x => x.ImageUrl, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary mt-4">Kaydet</button>
+    </div>
+}
+

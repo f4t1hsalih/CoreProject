@@ -1,0 +1,59 @@
+﻿@model List<EntityLayer.Concrete.Testimonial>
+@{
+    ViewData["Title"] = "Referanslar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="table-responsive">
+    <table class="table align-items-center table-flush">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">İsim</th>
+                <th scope="col">Pozisyon</th>
+                <th scope="col">Şirket</th>
+                <th scope="col">Yorum</th>
+                <th scope="col">Düzenle</th>
+                <th scope="col">Sil</th>
+            </tr>
+        </thead>
+        <tbody class="list">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <div class="media align-items-center">
+                            <div class="avatar rounded-circle mr-3">
+                                <img alt="Image placeholder" src="@item.ImageUrl">
+                            </div>
+                            <div class="media-body">
+                                <span class="name mb-0 text-sm">@item.Name</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        @item.Position
+                    </td>
+                    <td>
+                        @item.Company
+                    </td>
+                    <td>
+                        @(
+                            !string.IsNullOrEmpty(item.Comment)
+                            ? (item.Comment.Length > 30
+                            ? item.Comment.Substring(0, 30) + "..."
+                            : item.Comment)
+                            : "Yorum mevcut değil"
+                            )
+                    </td>
+                    <td>
+                        <a href="@Url.Action("EditTestimonial", "Testimonial", new { id = item.Id })" class="btn btn-sm btn-primary">Düzenle</a>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("DeleteTestimonial", "Testimonial", new { id = item.Id })" class="btn btn-sm btn-danger">Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
