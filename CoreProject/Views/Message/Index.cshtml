@@ -1,0 +1,165 @@
+﻿@model List<EntityLayer.Concrete.Message>
+
+@{
+    ViewData["Title"] = "Mesajlar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="table-responsive">
+    <table class="table align-items-center table-flush">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Ad</th>
+                <th scope="col">Email</th>
+                <th scope="col">İçerik</th>
+                <th scope="col">Görüntüle</th>
+                <th scope="col">Sil</th>
+            </tr>
+        </thead>
+        <tbody class="list">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Email</td>
+                    <td>
+                        @(
+                            !string.IsNullOrEmpty(item.Content)
+                            ? (item.Content.Length > 30
+                            ? item.Content.Substring(0, 30) + "..."
+                            : item.Content)
+                            : "Açıklama mevcut değil"
+                            )
+                    </td>
+                    <td>
+                        <!-- Görüntüle butonu, her mesaj için farklı bir id olacak -->
+                        <button class="btn btn-sm btn-primary openPopupBtn"
+                                data-id="@item.Id"
+                                data-name="@item.Name"
+                                data-email="@item.Email"
+                                data-content="@item.Content"
+                                data-date="@item.Date">
+                            Görüntüle
+                        </button>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("DeleteMessage", "Message", new { id = item.Id })" class="btn btn-sm btn-danger">Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<!-- Popup yapısı -->
+<div id="messagePopup" class="popup">
+    <div class="popup-content">
+        <span class="close-btn">&times;</span>
+        <h3 class="popup-header">Mesaj Detayı</h3>
+        <hr />
+        <p id="popupDate" class="popup-date"></p>
+        <p><strong>Ad:</strong> <span id="popupName"></span></p>
+        <p><strong>Email:</strong> <span id="popupEmail"></span></p>
+        <p><strong>İçerik:</strong></p>
+        <p id="popupContent"></p>
+    </div>
+</div>
+
+<!-- CSS -->
+<style>
+    .popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .popup-content {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        width: 600px;
+        max-width: 100%;
+        position: relative;
+    }
+
+    .popup-header {
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .close-btn {
+        font-size: 28px;
+        position: absolute;
+        right: 15px;
+        top: 10px;
+        cursor: pointer;
+    }
+
+    .popup-date {
+        font-size: 14px;
+        color: gray;
+        text-align: right;
+        margin-bottom: 20px;
+    }
+
+    hr {
+        margin-bottom: 20px;
+    }
+
+    p {
+        margin: 5px 0;
+    }
+
+</style>
+
+
+<!-- JavaScript -->
+<script>
+    // Popup elementleri seç
+    const popup = document.getElementById('messagePopup');
+    const popupName = document.getElementById('popupName');
+    const popupEmail = document.getElementById('popupEmail');
+    const popupContent = document.getElementById('popupContent');
+    const popupDate = document.getElementById('popupDate');
+    const closeBtn = document.querySelector('.close-btn');
+
+    // "Görüntüle" butonlarına tıklama olayını ekle
+    document.querySelectorAll('.openPopupBtn').forEach(button => {
+        button.addEventListener('click', function () {
+            // Ad, email, içerik ve tarih bilgilerini al
+            const name = this.getAttribute('data-name');
+            const email = this.getAttribute('data-email');
+            const content = this.getAttribute('data-content') || 'Açıklama mevcut değil';
+            const date = this.getAttribute('data-date') || 'Tarih bilgisi yok';
+
+            // Popup'a bilgileri ekle
+            popupName.textContent = name;
+            popupEmail.textContent = email;
+            popupContent.textContent = content;
+            popupDate.textContent = date;
+
+            // Popup'ı aç
+            popup.style.display = 'flex';
+        });
+    });
+
+    // Popup'ı kapatma
+    closeBtn.addEventListener('click', function () {
+        popup.style.display = 'none';
+    });
+
+    // Popup dışına tıklayınca kapatma
+    window.addEventListener('click', function (e) {
+        if (e.target === popup) {
+            popup.style.display = 'none';
+        }
+    });
+</script>

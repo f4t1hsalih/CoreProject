@@ -31,7 +31,7 @@ namespace CoreProject.Controllers
         [HttpPost]
         public PartialViewResult SendMessage(Message message)
         {
-            MessageMenager messageMenager = new MessageMenager(new EfMessageDal());
+            MessageManager messageMenager = new MessageManager(new EfMessageDal());
             message.Date = DateTime.Now;
             message.Status = true;
             messageMenager.TAdd(message);

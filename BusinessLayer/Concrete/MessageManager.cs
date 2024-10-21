@@ -4,15 +4,21 @@ using EntityLayer.Concrete;
 
 namespace BusinessLayer.Concrete
 {
-    public class MessageMenager : IMessageService
+    public class MessageManager : IMessageService
     {
 
         private readonly IMessageDal _messageDal;
 
-        public MessageMenager(IMessageDal messageDal)
+        public MessageManager(IMessageDal messageDal)
         {
             _messageDal = messageDal;
         }
+
+        public void TSetStatusToFalse(int id)
+        {
+            _messageDal.SetStatusToFalse(id);
+        }
+
         public void TAdd(Message entity)
         {
             _messageDal.Add(entity);
@@ -36,6 +42,11 @@ namespace BusinessLayer.Concrete
         public void TUpdate(Message entity)
         {
             _messageDal.Update(entity);
+        }
+
+        public List<Message> TGetMessagesStatusTrue()
+        {
+            return _messageDal.GetMessagesStatusTrue();
         }
     }
 }
