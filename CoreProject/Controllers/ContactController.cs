@@ -7,9 +7,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CoreProject.Controllers
 {
-    public class FeatureController : Controller
+    public class ContactController : Controller
     {
-        FeatureManager featureManager = new FeatureManager(new EfFeatureDal());
+        ContactManager contactManager = new ContactManager(new EfContactDal());
+
         void ViewBags(string pageName)
         {
             ViewBag.PageName = pageName;
@@ -18,16 +19,15 @@ namespace CoreProject.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            ViewBags("Öne Çıkan");
-            var value = featureManager.TGetById(1);
+            ViewBags("İletişim Paneli Bilgileri");
+            var value = contactManager.TGetById(1);
             return View(value);
         }
-
         [HttpPost]
-        public IActionResult Index(Feature feature)
+        public IActionResult Index(Contact contact)
         {
-            FeatureValidator validations = new FeatureValidator();
-            ValidationResult result = validations.Validate(feature);
+            ContactValidator validations = new ContactValidator();
+            ValidationResult result = validations.Validate(contact);
             if (!result.IsValid)
             {
                 foreach (var item in result.Errors)
@@ -36,8 +36,9 @@ namespace CoreProject.Controllers
                 }
                 return View();
             }
-            featureManager.TUpdate(feature);
+            contactManager.TUpdate(contact);
             return RedirectToAction("Index");
         }
+
     }
 }

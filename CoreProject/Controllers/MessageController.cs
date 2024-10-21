@@ -7,9 +7,13 @@ namespace CoreProject.Controllers
     public class MessageController : Controller
     {
         MessageManager messageManager = new MessageManager(new EfMessageDal());
-
+        void ViewBags(string pageName)
+        {
+            ViewBag.PageName = pageName;
+        }
         public IActionResult Index()
         {
+            ViewBags("Mesajlar");
             var values = messageManager.TGetMessagesStatusTrue();
             return View(values);
         }
