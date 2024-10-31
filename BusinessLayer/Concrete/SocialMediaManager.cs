@@ -18,6 +18,11 @@ namespace BusinessLayer.Concrete
             _socialMediaDal.Add(entity);
         }
 
+        public void TAddStatusTrue(SocialMedia socialMedia)
+        {
+            _socialMediaDal.AddStatusTrue(socialMedia);
+        }
+
         public void TDelete(SocialMedia entity)
         {
             _socialMediaDal.Delete(entity);

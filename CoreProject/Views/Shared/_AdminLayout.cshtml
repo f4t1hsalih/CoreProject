@@ -86,6 +86,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link @(currentAction == "Index" && currentController == "SocialMedia" ? "active" : "")" href="/SocialMedia/Index/">
+                                <i class="ni ni-mobile-button text-turquoise"></i>
+                                <span class="nav-link-text">Sosyal Medya</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link @(currentAction == "Index" && currentController == "Contact" ? "active" : "")" href="/Contact/Index/">
                                 <i class="ni ni-tie-bow text-blue"></i>
                                 <span class="nav-link-text">İletişim</span>
@@ -146,20 +152,16 @@
                                 <div class="dropdown-header noti-title">
                                     <h6 class="text-overflow m-0">Merhaba!</h6>
                                 </div>
-                                <a href="#!" class="dropdown-item">
+                                <a href="/Feature/Index/" class="dropdown-item">
                                     <i class="ni ni-single-02"></i>
                                     <span>Profil</span>
                                 </a>
-                                <a href="#!" class="dropdown-item">
-                                    <i class="ni ni-settings-gear-65"></i>
-                                    <span>Ayarlar</span>
-                                </a>
-                                <a href="#!" class="dropdown-item">
+                                <a href="https://github.com/f4t1hsalih" target="_blank" class="dropdown-item">
                                     <i class="ni ni-support-16"></i>
                                     <span>Yardım</span>
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a href="#!" class="dropdown-item">
+                                <a href="/MainPage/Index/" class="dropdown-item">
                                     <i class="ni ni-button-power"></i>
                                     <span>Çıkış</span>
                                 </a>
