@@ -16,6 +16,5 @@ namespace EntityLayer.Concrete
         [StringLength(100)]  // varchar(100)
         public string? Icon { get; set; }
 
-        public bool Status { get; set; }
     }
 }

@@ -1,0 +1,37 @@
+﻿@model EntityLayer.Concrete.SocialMedia
+@{
+    ViewData["Title"] = "Sosyal Medya Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("AddSocialMedia", "SocialMedia", FormMethod.Post, new { @class = "card-body px-lg-5 py-lg-5" }))
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.Name, "Sosyal Medya", new { @class = "form-label" })
+        <div class="input-group input-group-alternative mb-3">
+            @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = "Sosyal Medya" })
+        </div>
+        @Html.ValidationMessageFor(x => x.Name, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Url, "Url", new { @class = "form-label" })
+        <div class="input-group input-group-alternative mb-3">
+            @Html.TextBoxFor(x => x.Url, new { @class = "form-control", placeholder = "Url" })
+        </div>
+        @Html.ValidationMessageFor(x => x.Url, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Icon, "Icon Adresi", new { @class = "form-label" })
+        <div class="input-group input-group-alternative mb-3">
+            @Html.TextBoxFor(x => x.Icon, new { @class = "form-control", placeholder = "Icon Adresi" })
+        </div>
+        @Html.ValidationMessageFor(x => x.Icon, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary mt-4">Ekle</button>
+    </div>
+}
+

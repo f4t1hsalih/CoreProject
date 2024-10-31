@@ -21,8 +21,6 @@ namespace BusinessLayer.ValidationRules
                 .NotEmpty().WithMessage("Simge alanı boş bırakılamaz.")
                 .MaximumLength(100).WithMessage("Simge alanı en fazla 100 karakter olmalıdır.");
 
-            RuleFor(x => x.Status)
-                .NotNull().WithMessage("Durum alanı boş bırakılamaz.");
         }
     }
 }
