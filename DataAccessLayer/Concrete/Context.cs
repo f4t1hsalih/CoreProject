@@ -8,7 +8,7 @@ namespace DataAccessLayer.Concrete
         //Bağlantı Adresi için gerekli konfigürasyon kodları
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server = DESKTOP-9D1JVJE\\SQLEXPRESS; database = DB_CoreProject; integrated security = true;  encrypt = false");
+            optionsBuilder.UseSqlServer("server = .\\SQLEXPRESS; database = DB_CoreProject; integrated security = true;  encrypt = false");
         }
 
         public DbSet<About> Abouts { get; set; }
@@ -21,6 +21,7 @@ namespace DataAccessLayer.Concrete
         public DbSet<Skill> Skills { get; set; }
         public DbSet<SocialMedia> SocialMedias { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
+        public DbSet<Admin> Admins { get; set; }
 
 
     }
