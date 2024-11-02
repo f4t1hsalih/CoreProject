@@ -1,0 +1,60 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Sayfa Bulunamadı</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .error-container {
+            text-align: center;
+        }
+        .error-code {
+            font-size: 96px;
+            font-weight: bold;
+            color: #343a40;
+        }
+        .error-message {
+            font-size: 24px;
+            color: #6c757d;
+            margin-bottom: 20px;
+        }
+        .btn-home {
+            color: #fff;
+            background-color: #007bff;
+            border-color: #007bff;
+            padding: 10px 20px;
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .btn-home:hover {
+            text-decoration: none;
+            color: #fff;
+            background-color: #0062cc;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-code">404</div>
+        <div class="error-message">Üzgünüz, aradığınız sayfa bulunamadı.</div>
+        <a href="/MainPage/Index/" class="btn-home">Ana Sayfaya Dön</a>
+    </div>
+</body>
+</html>
+

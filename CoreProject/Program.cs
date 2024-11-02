@@ -70,7 +70,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseStatusCodePages();
+app.UseStatusCodePagesWithReExecute("/Error/Error404/");
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
